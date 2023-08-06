@@ -10,7 +10,7 @@ const Modal = ({ children,isVisible, onClose }) => {
                 <div className="bg-white p-2 rounded flex flex-col">
                     <button 
                         onClick={onClose}
-                        className="text-xl place-self-end font-semibold hover:text-sky-700">
+                        className="text-2xl place-self-end font-semibold hover:text-sky-700">
                         X
                     </button>
                     {children}

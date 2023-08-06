@@ -26,7 +26,7 @@ export default function NewRecipe() {
                 <img
                     className='float-right'
                     src="https://www.file-extension.info/images/resource/formats/img.png"
-                    alt="" 
+                    alt="img" 
                 />
                     
             </form>
