@@ -60,7 +60,7 @@ export default function NewRecipe() {
                             hover:border-sky-500 p-1 rounded-xl'
                     />
             </div>
-
+        <div>
             <button
                 type='button'
                 className=' bg-sky-900  hover:bg-sky-700
@@ -70,6 +70,8 @@ export default function NewRecipe() {
             >
                 Add Recipe
             </button>
+        </div>
+            
             
         </div>
     )
