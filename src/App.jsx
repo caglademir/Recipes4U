@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import Modal from './Components/Modals/Modal';
 import NewRecipe from './Components/NewRecipe';
-
-
-
+import Recipes from './Components/Recipes';
 
 function App() {
 
@@ -28,12 +26,14 @@ const [showModal, setShowModal] = useState(false);
 
     </div>
 
+   
     <Modal 
       isVisible={showModal} 
       onClose={() => setShowModal(false)} 
     >
-      <NewRecipe/>
+      <NewRecipe/> 
     </Modal>
+    <Recipes/>
   </div>
  
   )
