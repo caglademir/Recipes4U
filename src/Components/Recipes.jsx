@@ -1,7 +1,17 @@
 import React from 'react'
 
-export default function Recipes({ recipes }) {
+export default function Recipes({ recipes, isVisible, setCatchId}) {
+    const editRecipe = (selectItem)=>{
+        
+        let newEditItem =recipes.find((item)=>{
+            return item.id===selectItem;
+        })
+        
+        setCatchId(newEditItem);
 
+        isVisible(true);
+
+    }
 
     return (
         <div className='h-full grid grid-cols-3 gap-4 ml-4 mr-4'>
@@ -29,6 +39,7 @@ export default function Recipes({ recipes }) {
                         </div>
                         <div className='flex items-end justify-end'>
                             <button
+                                onClick={()=> editRecipe(recipe.id)}
                                 type='button'
                                 className=' bg-sky-900  hover:bg-sky-700
                                     rounded-lg text-white 

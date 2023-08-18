@@ -2,15 +2,17 @@ import { useState } from 'react'
 import Modal from './Components/Modals/Modal';
 import NewRecipe from './Components/NewRecipe';
 import Recipes from './Components/Recipes';
+import EditModal from './Components/Modals/EditModal';
 
 function App() {
 
   const [showModal, setShowModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
   const [recipeTitle, setRecipeTitle] = useState();
   const [recipeDesc, setRecipeDesc] = useState();
   const [recipeImg, setRecipeImg] = useState();
   const [recipes, setRecipes] = useState([]);
-
+  const [catchId, setCatchId] = useState();
   return (
 
     <div className='h-full bg-slate-900 grid grid-rows-2 grid-flow-col gap-4'>
@@ -48,8 +50,15 @@ function App() {
         />
       </Modal>
 
+      <EditModal
+        isVisible={editModal}
+        onClose={() => setEditModal(false)}
+        catchId={catchId}
+        recipes={recipes} 
+        setRecipes={setRecipes} 
+      ></EditModal>
       <div>
-        <Recipes recipes={recipes}/>
+        <Recipes recipes={recipes}  isVisible={setEditModal} setCatchId={setCatchId}/>
       </div>
     </div>
 

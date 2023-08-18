@@ -8,7 +8,10 @@ export default function NewRecipe({ name, setName, desc, setDesc, img, setImg, r
         const recipe = {
             title: name,
             desc: desc,
-            img: img
+            img: img,
+            id: Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1)
         }
 
         recipes.push(recipe);
