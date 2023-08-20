@@ -24,12 +24,12 @@ export default function Recipes({ recipes, setRecipes, isVisible, setCatchId }) 
     return (
         <div className='h-full grid grid-cols-3 gap-4 ml-4 mr-4'>
             {recipes.map((recipe) => (
-                <div className='p-16'>
-                    <div className='bg-white grid grid-rows-2 gap-4 p-4 rounded-lg' >
+                <div className=''>
+                    <div className='bg-white grid grid-rows-2 p-4 rounded-lg h-[100%]' >
 
                         <div>
                             <img
-                                className='mx-auto'
+                                className='mx-auto rounded-lg'
                                 src={recipe.img}
                                 alt="img"
                             />
@@ -41,10 +41,10 @@ export default function Recipes({ recipes, setRecipes, isVisible, setCatchId }) 
                         </div>
 
                         <div className='flex justify-center'>
-                            <label
-                                className='text-md font-semibold text-sky-900 p-2'
-                            >{recipe.desc}
-                            </label>
+                            <p
+                                className='text-md font-semibold text-sky-800 p-2'
+                            >{recipe.desc.substring(0, 500) + "..."}
+                            </p>
                         </div>
                         <div className='flex items-end justify-end'>
                             <button

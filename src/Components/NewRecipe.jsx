@@ -69,10 +69,10 @@ export default function NewRecipe({ name, setName, desc, setDesc, img, setImg, r
                     className='text-lg font-semibold text-sky-900'
                     htmlFor="recipe"> Recipe:
                 </label>
-                <input
+                <textarea
                     onChange={(e) => { setDesc(e.target.value) }}
                     type="text"
-                    maxlength="500" size="550"
+                    
                     id="recipe"
                     placeholder="..."
                     className='w-full mt-2 border-2 border-sky-900 

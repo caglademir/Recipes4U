@@ -59,7 +59,8 @@ export default function EditModal({ isVisible, onClose, catchId, recipes, setRec
                             />
 
                             <img
-                                className='float-right'
+                                
+                                className='float-right border-4 border-sky-700 rounded-lg'
                                 src={catchId.img}
                                 alt="img"
                             />
@@ -88,10 +89,10 @@ export default function EditModal({ isVisible, onClose, catchId, recipes, setRec
                                 className='text-lg font-semibold text-sky-900'
                                 htmlFor="recipe"> Recipe:
                             </label>
-                            <input
+                            <textarea
                                 onChange={(e) => { setNewDesc(e.target.value) }}
                                 type="text"
-                                maxlength="500" size="550"
+                                
                                 id="recipe"
                                 placeholder="..."
                                 className='w-full mt-2 border-2 border-sky-900 

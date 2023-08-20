@@ -24,7 +24,7 @@ function App() {
 
   return (
 
-    <div className='h-full bg-slate-900 grid grid-rows-2 grid-flow-col gap-4'>
+    <div className='min-h-full bg-slate-900'>
 
       <div className='flex items-center justify-center'>
         <h1
@@ -32,7 +32,7 @@ function App() {
           Recipes4U
         </h1>
 
-        <div className='mt-48'>
+        <div className='mt-48 mb-48 ml-10'>
           <button
             onClick={() => setShowModal(true)}
             className='bg-sky-900 hover:bg-sky-700 rounded-lg p-2 text-white 
