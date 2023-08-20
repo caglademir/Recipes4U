@@ -24,7 +24,7 @@ function App() {
 
   return (
 
-    <div className='min-h-full bg-slate-900'>
+    <div className='min-h-screenç bg-slate-900'>
 
       <div className='flex items-center justify-center'>
         <h1
