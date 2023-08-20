@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Modal from './Components/Modals/Modal';
 import NewRecipe from './Components/NewRecipe';
 import Recipes from './Components/Recipes';
@@ -6,13 +6,22 @@ import EditModal from './Components/Modals/EditModal';
 
 function App() {
 
+
+
   const [showModal, setShowModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
   const [recipeTitle, setRecipeTitle] = useState();
   const [recipeDesc, setRecipeDesc] = useState();
   const [recipeImg, setRecipeImg] = useState();
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState(() => { return JSON.parse(localStorage.getItem("recipesData")) || [] });
   const [catchId, setCatchId] = useState();
+
+  useEffect(() => {
+    localStorage.setItem("recipesData", JSON.stringify(recipes))
+    
+  }, [recipes])
+
+
   return (
 
     <div className='h-full bg-slate-900 grid grid-rows-2 grid-flow-col gap-4'>
@@ -36,8 +45,7 @@ function App() {
 
       <Modal
         isVisible={showModal}
-        onClose={() => setShowModal(false)}
-      >
+        onClose={() => setShowModal(false)}>
         <NewRecipe
           name={recipeTitle}
           setName={setRecipeTitle}
@@ -46,6 +54,7 @@ function App() {
           img={recipeImg}
           setImg={setRecipeImg}
           recipes={recipes}
+          setRecipes={setRecipes}
           setShowModal={setShowModal}
         />
       </Modal>
@@ -54,11 +63,11 @@ function App() {
         isVisible={editModal}
         onClose={() => setEditModal(false)}
         catchId={catchId}
-        recipes={recipes} 
-        setRecipes={setRecipes} 
+        recipes={recipes}
+        setRecipes={setRecipes}
       ></EditModal>
       <div>
-        <Recipes recipes={recipes} setRecipes={setRecipes}  isVisible={setEditModal} setCatchId={setCatchId}/>
+        <Recipes recipes={recipes} setRecipes={setRecipes} isVisible={setEditModal} setCatchId={setCatchId} />
       </div>
     </div>
 

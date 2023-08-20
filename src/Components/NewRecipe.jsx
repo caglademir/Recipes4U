@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-export default function NewRecipe({ name, setName, desc, setDesc, img, setImg, recipes, setShowModal }) {
+export default function NewRecipe({ name, setName, desc, setDesc, img, setImg, recipes, setRecipes, setShowModal }) {
 
     const addLocal = (e) => {
 
@@ -10,16 +10,14 @@ export default function NewRecipe({ name, setName, desc, setDesc, img, setImg, r
             desc: desc,
             img: img,
             id: Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1)
+                .toString(16)
+                .substring(1)
         }
-
-        recipes.push(recipe);
-        console.log(recipe)
-
+        const newData = [...recipes, recipe];
+        setRecipes(newData);
         setShowModal(false);
     }
-    
+
     return (
         <div className=''>
             <form className='mt-4 p-4'>

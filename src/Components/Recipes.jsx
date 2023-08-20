@@ -1,21 +1,21 @@
 import React from 'react'
 
-export default function Recipes({ recipes, setRecipes, isVisible, setCatchId}) {
-    const editRecipe = (selectItem)=>{
+export default function Recipes({ recipes, setRecipes, isVisible, setCatchId }) {
+    const editRecipe = (selectItem) => {
 
-        let newEditItem =recipes.find((item)=>{
-            return item.id===selectItem;
+        let newEditItem = recipes.find((item) => {
+            return item.id === selectItem;
         })
-        
+
         setCatchId(newEditItem);
 
         isVisible(true);
 
     }
 
-    const deleteRecipe = (selectItem)=>{
-        const updateRecipes = recipes.filter((item)=>{
-            return item.id!==selectItem;
+    const deleteRecipe = (selectItem) => {
+        const updateRecipes = recipes.filter((item) => {
+            return item.id !== selectItem;
         })
         setRecipes(updateRecipes);
 
@@ -23,10 +23,10 @@ export default function Recipes({ recipes, setRecipes, isVisible, setCatchId}) {
 
     return (
         <div className='h-full grid grid-cols-3 gap-4 ml-4 mr-4'>
-                {recipes.map((recipe) => (
-            <div className='p-16'>
+            {recipes.map((recipe) => (
+                <div className='p-16'>
                     <div className='bg-white grid grid-rows-2 gap-4 p-4 rounded-lg' >
-                    
+
                         <div>
                             <img
                                 className='mx-auto'
@@ -48,7 +48,7 @@ export default function Recipes({ recipes, setRecipes, isVisible, setCatchId}) {
                         </div>
                         <div className='flex items-end justify-end'>
                             <button
-                                onClick={()=> editRecipe(recipe.id)}
+                                onClick={() => editRecipe(recipe.id)}
                                 type='button'
                                 className=' bg-sky-900  hover:bg-sky-700
                                     rounded-lg text-white 
@@ -56,7 +56,7 @@ export default function Recipes({ recipes, setRecipes, isVisible, setCatchId}) {
                                 Edit Recipe
                             </button>
                             <button
-                               onClick={()=> deleteRecipe(recipe.id)}
+                                onClick={() => deleteRecipe(recipe.id)}
                                 type='button'
                                 className=' bg-rose-800  hover:bg-rose-700
                                     rounded-lg text-white 
@@ -65,9 +65,8 @@ export default function Recipes({ recipes, setRecipes, isVisible, setCatchId}) {
                             </button>
                         </div>
                     </div>
-            </div>
-                ))}
-
+                </div>
+            ))}
 
         </div>
     )
