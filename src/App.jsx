@@ -58,7 +58,7 @@ function App() {
         setRecipes={setRecipes} 
       ></EditModal>
       <div>
-        <Recipes recipes={recipes}  isVisible={setEditModal} setCatchId={setCatchId}/>
+        <Recipes recipes={recipes} setRecipes={setRecipes}  isVisible={setEditModal} setCatchId={setCatchId}/>
       </div>
     </div>
 
